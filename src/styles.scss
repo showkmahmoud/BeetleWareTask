@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.container-wrapper {
+  width: 95%;
+  margin: 0 auto;
+}
