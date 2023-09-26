@@ -1,0 +1,50 @@
+{
+  "actions": {
+    "main-btn": "Lorem ipsum",
+    "watch-video": "Lorem ipsum",
+    "menu": "menu",
+    "plan-btn": "Start now",
+    "download": "Download",
+    "spread": "widespread",
+    "price-msg": "the prices will be sent",
+    "not-found": "Not Found",
+    "contactUs": "Contact us"
+  },
+  "forms-msg": {
+    "footer-placholder": "email",
+    "send": "send",
+    "mail-msg": " your email",
+    "text-msg": "write your mrssage",
+    "countery-msg": " choose your countery",
+    "services-checkbox1": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, vero officia corrupti quis molestiae omnis rem! Voluptatem, nobis. ",
+    "services-checkbox2": " Assumenda, vero officia corrupti quis molestiae omnis rem! Voluptatem",
+    "privacy-policy": "vero officia corrupti quis molestiae ",
+    "conditions": "amet consectetur adipisicing ",
+    "error-msg": "this field is required",
+    "mail-error-msg": "this mail is invalid"
+  },
+  "forms-label": {
+    "name": "Name",
+    "firstName": " first Name",
+    "lastName": "last Name ",
+    "phone": "phone",
+    "email": " email ",
+    "countery": "countery",
+    "subject": "subject",
+    "subjectTitle": " subject title"
+  },
+  "langes": {
+    "en": "English",
+    "ar": "Arabic"
+  },
+  "table": {
+    "size": "Size",
+    "download": "Download",
+    "table-caption": " all applications",
+    "search": "search",
+    "filter-placeholder": "all applications",
+    "all": "All",
+    "filter-group-1": "group 1",
+    "filter-group-2": "group 2"
+  }
+}
