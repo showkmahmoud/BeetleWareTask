@@ -26,7 +26,8 @@ body{
   margin: 0 auto;
 }
 
-.main-btn{
+.main-btn,
+.disabled-main-btn{
   display: block;
   margin-left: auto;
   width: 150px;
@@ -38,4 +39,8 @@ body{
   cursor: pointer;
   margin-top: 20px;
   font-size: 18px;
+}
+.disabled-main-btn{
+opacity: .8;
+cursor: auto;
 }

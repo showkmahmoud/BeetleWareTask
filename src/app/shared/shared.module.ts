@@ -7,6 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToastModule } from 'primeng/toast';
 
 
 
@@ -18,7 +19,8 @@ import { TranslateModule } from '@ngx-translate/core';
     PrimengModule,
     FormsModule,
     ReactiveFormsModule,
-    I18nModule
+    I18nModule,
+    ToastModule,
   ],
   exports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ButtonModule,
     I18nModule,
     TranslateModule,
+    ToastModule,
   ]
 })
 export class SharedModule { }

@@ -17,7 +17,7 @@ export class LangService {
     // to use the used language globally and subscribe on it
     private usedLang: any = new BehaviorSubject(
       !(localStorage.getItem(LANG_KEY) as string)
-        ? Languages.ar
+        ? Languages.en
         : (localStorage.getItem(LANG_KEY) as string)
     );
     usedLangValue = this.usedLang.asObservable();
