@@ -1,0 +1,13 @@
+.loginForm-wrapper{
+  background: var(--white-bg);
+  height: 100vh;
+  padding: 200px 0;
+  .form-wrapper{
+    background: var(--white);
+    color: var(--black);
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 20%;
+  }
+}

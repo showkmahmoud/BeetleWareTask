@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --primary: #5083fc;
+--header-text: #273266;
+--black: black;
+--white: white;
+--btn-text: #8950fc;
+--text: #00071f;
+--border: #cad2e0;
+--dark-bg: #00071f;
+--footer-link: #c7c7c7;
+--white-bg:#eeeeee;
+}
+body{
+  box-sizing: border-box;
+  margin: 0;
+}
 .container {
   max-width: 1460px;
   margin: 0 auto;
@@ -8,4 +24,18 @@
 .container-wrapper {
   width: 95%;
   margin: 0 auto;
+}
+
+.main-btn{
+  display: block;
+  margin-left: auto;
+  width: 150px;
+  height: 35px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  border: 1px solid transparent;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 18px;
 }

@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import {
+  getAppLanguage,
+  getCurrentLang,
+} from 'src/app/shared/services/appLanguage';
+import { LangService } from 'src/app/shared/services/lang.service';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +13,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-loginForm:FormGroup = new FormGroup({})
-  constructor(public formBuilder:FormBuilder) {
+loginForm:any = new FormGroup({});
+currentLang: string = '';
+
+  constructor(public formBuilder:FormBuilder,
+    private translte: TranslateService,
+    private translateService: LangService,
+) {
     this.loginForm = formBuilder.group({
       email:['',[Validators.email,Validators.required]],
       password:['',Validators.required]
@@ -16,9 +27,12 @@ loginForm:FormGroup = new FormGroup({})
   }
 
   ngOnInit(): void {
+  }
 
+  get formControls() {
+    return this.loginForm.controls;
   }
   onSubmit(){
-    console.log(this.loginForm)
+    console.log(this.loginForm.value)
   }
 }

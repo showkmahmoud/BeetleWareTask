@@ -1,8 +1,60 @@
 <div class="loginForm-wrapper">
   <div class="container">
-    <form [formGroup]="loginForm">
+    <form [formGroup]="loginForm" class="form-wrapper p-4">
+      <!-- email -->
+      <div class="flex flex-column gap-1 mb-6 relative">
+        <label htmlFor="email">Email</label>
+        <input pInputText formControlName="email"
+        [ngClass]="{
+          'ng-invalid ng-dirty':
+            formControls['email'].errors &&
+            formControls['email'].touched
+        }"/>
 
-    <button (click)="onSubmit()">submit</button>
+        <!-- email is required -->
+        <small
+        *ngIf="
+          formControls['email'].errors?.required &&
+          formControls['email'].touched
+        "
+        style="bottom: -22px;"
+        class="p-error absolute block my-1 font-semibold"
+        >
+        this field is required
+        </small>
+
+        <!-- error msg to the email validation -->
+      <small
+      *ngIf="
+        formControls['email'].errors?.email &&
+        formControls['email'].touched
+      "
+      style="bottom: -22px;"
+      class="p-error absolute block my-1 font-semibold"
+      >
+      this email is not valid
+      </small
+    >
+      </div>
+      <!-- password -->
+      <div class="flex flex-column gap-1 my-4 relative">
+        <label htmlFor="password">Password</label>
+        <input pInputText type="password" formControlName="password" />
+          <!-- password is required -->
+          <small
+          *ngIf="
+            formControls['password'].errors?.required &&
+            formControls['password'].touched
+          "
+          style="bottom: -22px;"
+          class="p-error absolute block my-1 font-semibold"
+          >
+          this field is required
+          </small>
+      </div>
+      <!-- submit btn -->
+      <!-- {{ "price-page.content" | translate }} -->
+    <button class="main-btn" (click)="onSubmit()">submit</button>
     </form>
   </div>
 

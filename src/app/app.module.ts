@@ -8,9 +8,7 @@ import { UserCardComponent } from './shared/components/user-card/user-card.compo
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { I18nModule } from './shared/i18n/i18n.module';
 
 @NgModule({
   declarations: [
@@ -23,14 +21,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpTranslateLoader,
-        deps: [HttpClient],
-      },
-    }),
+    I18nModule
   ],
 
   providers: [],
@@ -38,9 +29,3 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-// AOT compilation support
-
-export function httpTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
