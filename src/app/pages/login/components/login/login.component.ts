@@ -31,8 +31,8 @@ currentLang: string = '';
 
 ) {
     this.loginForm = formBuilder.group({
-      email:['',[Validators.email,Validators.required]],
-      password:['',Validators.required]
+      email:['admin888@gmail.com',[Validators.email,Validators.required]],
+      password:['12345678',Validators.required]
     })
   }
 
@@ -51,14 +51,15 @@ currentLang: string = '';
    * and call the loggei function fron the service
    */
   onSubmit(){
-
     if(  this.loginForm.value.password != '12345678'){
       this.messageService.add({ severity: 'error', summary: 'Login Failed', detail: 'Your email or password is incorrect' });
     }else{
       localStorage.setItem(AuthUser.authUser , this.loginForm.value.email);
       if(this.authService.loggedIn()){
-        this.messageService.add({ severity: 'success', summary: 'Login Success', detail: '' });
         this.router.navigate(['/home']);
+        this.messageService.add({ severity: 'success', summary: 'Login Success', detail: '' });
+      }else{
+        this.messageService.add({ severity: 'error', summary: 'Login Failed', detail: 'Your email or password is incorrect' });
       }
     }
   }
