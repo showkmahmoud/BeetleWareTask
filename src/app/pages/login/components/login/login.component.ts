@@ -31,7 +31,7 @@ currentLang: string = '';
 
 ) {
     this.loginForm = formBuilder.group({
-      email:['admin888@gmail.com',[Validators.email,Validators.required]],
+      email:['user123@gmail.com',[Validators.email,Validators.required]],
       password:['12345678',Validators.required]
     })
   }

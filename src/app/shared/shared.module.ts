@@ -8,11 +8,16 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { TranslateModule } from '@ngx-translate/core';
 import { ToastModule } from 'primeng/toast';
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { DividerModule } from 'primeng/divider';
 
 
 
 @NgModule({
   declarations: [
+    UserCardComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +26,9 @@ import { ToastModule } from 'primeng/toast';
     ReactiveFormsModule,
     I18nModule,
     ToastModule,
+    AvatarModule,
+    AvatarGroupModule,
+    DividerModule,
   ],
   exports: [
     CommonModule,
@@ -33,6 +41,10 @@ import { ToastModule } from 'primeng/toast';
     I18nModule,
     TranslateModule,
     ToastModule,
+    UserCardComponent,
+    AvatarModule,
+    AvatarGroupModule,
+    DividerModule,
   ]
 })
 export class SharedModule { }

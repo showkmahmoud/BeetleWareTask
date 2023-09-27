@@ -14,7 +14,7 @@ export class UsersService {
    * get the users data as array
   */
   getUsers(): IUser[]{
-    return users;
+    return users.filter((user) => user.status == UserStatus.active);
   }
 /**
  * used to adding a new user to the users data
@@ -46,6 +46,6 @@ export class UsersService {
    */
   deleteUser(id:number){
     const userIndex = users.findIndex((item => item.id == id));
-    users[userIndex].Status = UserStatus.softDeleted;
+    users[userIndex].status = UserStatus.softDeleted;
   }
 }

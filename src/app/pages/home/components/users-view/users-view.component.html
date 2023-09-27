@@ -1,0 +1,11 @@
+<div class="users-view-wrapper py-8">
+  <div class="grid mx-0 gap-3">
+    <ng-container *ngFor="let user of users">
+      <div class="col:12 md:col-6 lg:col-4">
+        <app-user-card
+        [user]="user"
+        ></app-user-card>
+      </div>
+    </ng-container>
+  </div>
+</div>

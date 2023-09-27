@@ -1,25 +1,25 @@
 import { IUser } from '../interfaces/user.interface';
 
-export const users: IUser[] = [
+export let users: IUser[] = [
   {
     name: 'ahmed',
     id: 1,
     email: 'a@test.com',
     phone: 4353453543,
-    Status: 'active',
+    status: 'active',
   },
   {
     name: 'omar',
     id: 2,
     email: 'a@test.com',
     phone: 372636722,
-    Status: 'active',
+    status: 'active',
   },
   {
     name: 'ali',
     id: 3,
     email: 'c@test.com',
     phone: 82736,
-    Status: 'soft_deleted',
+    status: 'soft_deleted',
   },
 ];

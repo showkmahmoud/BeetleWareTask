@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div class="home-layout">
+  <div class="container">
+    <ng-container *ngIf="userType == uTypes.admin">
+    <app-admins-view></app-admins-view>
+  </ng-container>
+
+  <ng-container *ngIf="userType == uTypes.user">
+    <app-users-view></app-users-view>
+  </ng-container>
+  </div>
+
+</div>

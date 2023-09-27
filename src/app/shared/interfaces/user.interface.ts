@@ -3,5 +3,5 @@ export interface IUser {
   "id": number,
   "email": string,
   "phone": number,
-  "Status" :string
+  "status" :string
 }

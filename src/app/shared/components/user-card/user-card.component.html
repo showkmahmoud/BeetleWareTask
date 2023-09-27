@@ -1,1 +1,14 @@
-<p>user-card works!</p>
+<div class="user-card-wrapper">
+  <div class="flex card">
+    <div class="user-avatar">
+      <span class="user-avatar">{{user.name}}</span>
+    </div>
+    <p-divider layout="vertical"></p-divider>
+    <div class="user-data">
+      <p>{{'user.name'}}: {{user.name}}</p>
+      <p>{{'user.phone'}}: {{user.phone}}</p>
+      <p>{{'user.email'}}: {{user.email}}</p>
+      <p>{{'user.status'}}: {{user.status}}</p>
+    </div>
+  </div>
+</div>
