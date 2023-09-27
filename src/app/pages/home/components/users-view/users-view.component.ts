@@ -1,6 +1,5 @@
 import { IUser } from './../../../../shared/interfaces/user.interface';
-import { UsersService } from './../../../../shared/services/users.service';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-users-view',
@@ -8,18 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./users-view.component.scss']
 })
 export class UsersViewComponent {
-  users: IUser[] = [];
-  constructor(public usersService:UsersService){
+  @Input() users: IUser[] = [];
+  constructor(){
 
   }
   ngOnInit(): void {
-    this.getUsers();
 }
 
-/**
- * to get the users data
- */
-getUsers(){
-  this.users = this.usersService.getUsers()
-}
 }
