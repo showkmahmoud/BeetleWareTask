@@ -1,4 +1,7 @@
-export interface IAuthUser {
-  email: string;
-  password?:string
+export interface IUser {
+  "name":string,
+  "id": number,
+  "email": string,
+  "phone": number,
+  "Status" :string
 }
