@@ -38,6 +38,9 @@ export class AddEditUserComponent {
   get formControls() {
     return this.form.controls;
   }
+  /**
+   * to create the add form group
+   */
   onCreateAddingUserForm(){
     this.form = this.formBuilder.group({
       name:['',[Validators.required]],
@@ -46,6 +49,9 @@ export class AddEditUserComponent {
       status:[UserStatus.active]
     })
   }
+    /**
+   * to create the edit form group
+   */
   onCreateUpdateUserForm(){
     this.form = this.formBuilder.group({
       name:[this.dialogConfig.data.user.name,[Validators.required]],
@@ -55,6 +61,9 @@ export class AddEditUserComponent {
     })
   }
 
+  /**
+   * on submit the form to send the value
+   */
   onSubmit(){
     this.ref.close(this.form.value);
   }

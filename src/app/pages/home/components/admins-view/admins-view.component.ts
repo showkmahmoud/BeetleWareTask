@@ -28,12 +28,11 @@ import { AddEditUserComponent } from '../add-edit-user/add-edit-user.component';
 export class AdminsViewComponent {
   @Input() users!: IUser[];
   @Output() userDeleted: EventEmitter<number> = new EventEmitter();
-  @Output() userUpdated: EventEmitter<IUser> = new EventEmitter();
+  @Output() userUpdated: EventEmitter<any> = new EventEmitter();
   @Output() userAdded: EventEmitter<IUser> = new EventEmitter();
   @ViewChild('dt') dt: Table | undefined;
 
   currentLang: string = '';
-  ticketStatus: any[] = [];
   filteredData: any[] = [];
   ref: DynamicDialogRef | undefined;
 
@@ -51,10 +50,7 @@ export class AdminsViewComponent {
   ngDoCheck(): void {
     this.currentLang = getCurrentLang(this.translateService);
   }
-  onStateChange(e: any) {
-    let val = e.value;
-    this.filteredData = [...val];
-  }
+
   applyFilterGlobal($event: any, stringVal: any) {
     this.dt?.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
@@ -83,8 +79,13 @@ export class AdminsViewComponent {
       dismissableMask:true,
       width:'40vw'
     });
-    this.ref.onClose.subscribe((user) => {
-      this.userUpdated.emit(user? user : null);
+    this.ref.onClose.subscribe((data) => {
+      if(data){
+        data.id = user.id
+        this.userUpdated.emit(data);
+      }else{
+        this.userUpdated.emit(null);
+      }
     });
   }
 
