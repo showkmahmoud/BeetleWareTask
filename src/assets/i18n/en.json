@@ -1,8 +1,8 @@
 {
   "actions": {
     "add-btn": "Add User",
-    "delete-btn": "Edit",
-    "edit-btn": "Delete",
+    "delete-btn": "Delete",
+    "edit-btn": "Edit",
     "submit-btn":"Submit",
     "not-found": "Not Found",
     "logout":"Logout"

@@ -59,14 +59,14 @@ currentLang: string = '';
    */
   onSubmit(){
     if(  this.loginForm.value.password != '12345678'){
-      this.messageService.add({ severity: 'error', summary: 'Login Failed', detail: 'Your email or password is incorrect' });
+      this.messageService.add({ severity: 'error', summary: this.currentLang == 'en'? 'Login Failed' : 'لم يم تسجيل الدخول', detail: 'يوجد خطا فى الايميل او كلمة المرور' });
     }else{
       localStorage.setItem(AuthUser.authUser , this.loginForm.value.email);
       if(this.authService.loggedIn()){
         this.router.navigate(['/home']);
         this.messageService.add({ severity: 'success', summary: this.currentLang == 'en'? 'Login Success': 'تم تسجيل الدخول بنجاح', detail: '' });
       }else{
-        this.messageService.add({ severity: 'error', summary: this.currentLang == 'en'? 'Login Failed': 'لم يم تسجيل الدخول',  detail: 'Your email or password is incorrect' });
+        this.messageService.add({ severity: 'error', summary: this.currentLang == 'en'? 'Login Failed': 'لم يم تسجيل الدخول',  detail: 'يوجد خطا فى الايميل او كلمة المرور' });
       }
     }
   }
