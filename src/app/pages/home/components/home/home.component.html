@@ -2,18 +2,21 @@
   <div class="container">
     <ng-container *ngIf="userType == uTypes.admin">
     <app-admins-view
-    [users]="users"></app-admins-view>
+    [users]="users"
+    (userDeleted)="onUserDeleted()"
+    (userUpdated)="onUSerUpdated()"
+    ></app-admins-view>
   </ng-container>
 
   <ng-container *ngIf="userType == uTypes.user">
     <app-users-view
-    [users]="users"></app-users-view>
+    [users]="users"
+    ></app-users-view>
   </ng-container>
   </div>
 
   <ng-container *ngIf="users.length == 0">
     <p class="text-center">No Data Found</p>
   </ng-container>
-
-
 </div>
+<p-toast></p-toast>

@@ -11,7 +11,7 @@ export let users: IUser[] = [
   {
     name: 'omar',
     id: 2,
-    email: 'a@test.com',
+    email: 'omar@test.com',
     phone: 372636722,
     status: 'active',
   },

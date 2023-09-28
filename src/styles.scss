@@ -27,7 +27,10 @@ body{
 }
 
 .main-btn,
-.disabled-main-btn{
+.disabled-main-btn,
+.delete-btn,
+.edit-btn,
+.add-btn{
   display: block;
   margin-left: auto;
   width: 150px;
@@ -43,4 +46,10 @@ body{
 .disabled-main-btn{
 opacity: .8;
 cursor: auto;
+}
+.delete-btn{
+  background: rgb(197, 21, 21);
+}
+.add-btn{
+  background: green;
 }

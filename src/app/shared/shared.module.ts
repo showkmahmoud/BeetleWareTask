@@ -12,6 +12,7 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { DividerModule } from 'primeng/divider';
+import { DialogModule } from 'primeng/dialog';
 
 
 
@@ -29,6 +30,7 @@ import { DividerModule } from 'primeng/divider';
     AvatarModule,
     AvatarGroupModule,
     DividerModule,
+    DialogModule,
   ],
   exports: [
     CommonModule,
@@ -45,6 +47,7 @@ import { DividerModule } from 'primeng/divider';
     AvatarModule,
     AvatarGroupModule,
     DividerModule,
+    DialogModule,
   ]
 })
 export class SharedModule { }

@@ -14,6 +14,8 @@ export class UsersService {
    * get the users data as array
   */
   getUsers(): IUser[]{
+    console.log( 'get users',users)
+    console.log(users.filter((user) => user.status == UserStatus.active))
     return users.filter((user) => user.status == UserStatus.active);
   }
 /**
@@ -47,5 +49,6 @@ export class UsersService {
   deleteUser(id:number){
     const userIndex = users.findIndex((item => item.id == id));
     users[userIndex].status = UserStatus.softDeleted;
+    console.log('delete user',users)
   }
 }
