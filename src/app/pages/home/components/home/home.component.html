@@ -3,8 +3,9 @@
     <ng-container *ngIf="userType == uTypes.admin">
     <app-admins-view
     [users]="users"
-    (userDeleted)="onUserDeleted()"
-    (userUpdated)="onUSerUpdated()"
+    (userDeleted)="onUserDeleted($event)"
+    (userUpdated)="onUserUpdated($event)"
+    (userAdded)="onUserAdded($event)"
     ></app-admins-view>
   </ng-container>
 

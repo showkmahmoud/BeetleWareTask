@@ -4,12 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AuthUser } from 'src/app/shared/enums/authenticatedUser';
 import { IUser } from 'src/app/shared/interfaces/user.interface';
+import { DialogService } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [MessageService],
+  providers: [MessageService,DialogService],
 })
 export class HomeComponent implements OnInit {
   userType: string = '';
@@ -34,7 +35,8 @@ export class HomeComponent implements OnInit {
       this.users = res.users.length > 0 ? res.users : [];
     });
   }
-  onUserDeleted() {
+  onUserDeleted(id:number) {
+    this.usersService.deleteUser(id);
     this.messageService.add({
       severity: 'success',
       summary: 'User Deleted Successfully',
@@ -42,12 +44,27 @@ export class HomeComponent implements OnInit {
     });
     this.users = this.usersService.getUsers();
   }
-  onUSerUpdated() {
+  onUserUpdated(user:IUser) {
+    if(user){
+      this.usersService.updateUser(user);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'User Updated Successfully',
+        detail: '',
+      });
+      this.users = this.usersService.getUsers();
+    }
+  }
+
+  onUserAdded(user:IUser) {
+    if(user){
+    this.usersService.addUser(user);
     this.messageService.add({
       severity: 'success',
-      summary: 'User Updated Successfully',
+      summary: 'User Added Successfully',
       detail: '',
     });
     this.users = this.usersService.getUsers();
+    }
   }
 }

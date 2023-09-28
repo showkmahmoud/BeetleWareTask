@@ -1,1 +1,40 @@
-<p>add-edit-user works!</p>
+<div class="add-edit-wrapper">
+  <form [formGroup]="form" class="form-wrapper" *ngIf="form">
+     <!-- email -->
+     <div class="flex flex-column gap-1 mb-6 relative">
+      <label htmlFor="email">Email</label>
+      <input pInputText formControlName="email"
+      [ngClass]="{
+        'ng-invalid ng-dirty':
+          formControls['email'].errors &&
+          formControls['email'].touched
+      }"/>
+
+      <!-- email is required -->
+      <small
+      *ngIf="
+        formControls['email'].errors?.required &&
+        formControls['email'].touched
+      "
+      style="bottom: -22px;"
+      class="p-error absolute block my-1 font-semibold"
+      >
+      this field is required
+      </small>
+
+      <!-- error msg to the email validation -->
+    <small
+    *ngIf="
+      formControls['email'].errors?.email &&
+      formControls['email'].touched
+    "
+    style="bottom: -22px;"
+    class="p-error absolute block my-1 font-semibold"
+    >
+    this email is not valid
+    </small
+  >
+    </div>
+  </form>
+  <button class="edit-btn my-1 mx-auto capitalize" (click)="onSubmit()">submit</button>
+</div>

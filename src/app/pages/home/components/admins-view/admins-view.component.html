@@ -23,8 +23,8 @@
               {{ "Users Data" | translate }}
             </p>
           </div>
-          <div class="grid align-items-end col-12 md:col-6 lg:col-6 my-1">
-            <div class="col-12 m-0 p-0">
+          <div class="grid align-items-center justify-content-between px-5 col-12 md:col-6 lg:col-6 my-1">
+            <div class="col-8 m-0 p-0">
               <span class="p-input-icon-right">
                 <input
                   type="text"
@@ -35,6 +35,9 @@
 
                 <i class="pi pi-search"></i>
               </span>
+            </div>
+            <div class="add-user-action">
+              <button class="add-btn my-1 mx-auto capitalize" (click)="onAddUser()">add user</button>
             </div>
           </div>
         </div>

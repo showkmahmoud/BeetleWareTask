@@ -13,6 +13,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { DividerModule } from 'primeng/divider';
 import { DialogModule } from 'primeng/dialog';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 
 
@@ -31,6 +32,7 @@ import { DialogModule } from 'primeng/dialog';
     AvatarGroupModule,
     DividerModule,
     DialogModule,
+    DynamicDialogModule,
   ],
   exports: [
     CommonModule,
@@ -48,6 +50,7 @@ import { DialogModule } from 'primeng/dialog';
     AvatarGroupModule,
     DividerModule,
     DialogModule,
+    DynamicDialogModule,
   ]
 })
 export class SharedModule { }

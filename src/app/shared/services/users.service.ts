@@ -14,8 +14,6 @@ export class UsersService {
    * get the users data as array
   */
   getUsers(): IUser[]{
-    console.log( 'get users',users)
-    console.log(users.filter((user) => user.status == UserStatus.active))
     return users.filter((user) => user.status == UserStatus.active);
   }
 /**
@@ -25,7 +23,6 @@ export class UsersService {
   addUser(user:IUser){
     const id = Math.floor(Math.random() * 100);
     user.id = id
-    console.log(user);
     users.push(user)
   }
 
@@ -36,10 +33,7 @@ export class UsersService {
 
   updateUser(user:IUser){
     const userIndex = users.findIndex((item => item.id == user.id));
-    console.log(user)
-    console.log(users[userIndex])
     users.splice(userIndex,1,user)
-    console.log(users)
   }
 
   /**
@@ -49,6 +43,5 @@ export class UsersService {
   deleteUser(id:number){
     const userIndex = users.findIndex((item => item.id == id));
     users[userIndex].status = UserStatus.softDeleted;
-    console.log('delete user',users)
   }
 }

@@ -1,5 +1,12 @@
 import { UsersService } from 'src/app/shared/services/users.service';
-import { Component, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
@@ -9,6 +16,8 @@ import {
   getCurrentLang,
 } from 'src/app/shared/services/appLanguage';
 import { LangService } from 'src/app/shared/services/lang.service';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { AddEditUserComponent } from '../add-edit-user/add-edit-user.component';
 
 @Component({
   selector: 'app-admins-view',
@@ -18,18 +27,22 @@ import { LangService } from 'src/app/shared/services/lang.service';
 })
 export class AdminsViewComponent {
   @Input() users!: IUser[];
-  @Output()userDeleted:EventEmitter<boolean> = new EventEmitter();
-  @Output()userUpdated:EventEmitter<boolean> = new EventEmitter();
+  @Output() userDeleted: EventEmitter<number> = new EventEmitter();
+  @Output() userUpdated: EventEmitter<IUser> = new EventEmitter();
+  @Output() userAdded: EventEmitter<IUser> = new EventEmitter();
   @ViewChild('dt') dt: Table | undefined;
 
   currentLang: string = '';
   ticketStatus: any[] = [];
   filteredData: any[] = [];
+  ref: DynamicDialogRef | undefined;
+
   constructor(
     private translateService: LangService,
     private translte: TranslateService,
     public messageService: MessageService,
-    public usersService: UsersService
+    public usersService: UsersService,
+    public dialogService: DialogService
   ) {}
   ngOnInit(): void {
     getAppLanguage(this.translte, this.translateService);
@@ -50,18 +63,49 @@ export class AdminsViewComponent {
    * to delete the selected user
    * @param id :number
    */
-  onDeleteUser(id:number){
-    this.usersService.deleteUser(id);
-    this.userDeleted.emit(true);
+  onDeleteUser(id: number) {
+    this.userDeleted.emit(id);
   }
 
   /**
-   * to update the selected user
+   * open the dialog to update the selected user and emit the form value to the home page
+   * to update the user
    * @param user :IUser
    */
-  onUpdateUser(user:IUser){
-    this.usersService.updateUser(user);
-    this.userDeleted.emit(true);
+  onUpdateUser(user: IUser) {
+    this.ref = this.dialogService.open(AddEditUserComponent, {
+      header: `Edit ${user.name}`,
+      data: {
+        user: user,
+        status: 'update',
+      },
+      closable:true,
+      dismissableMask:true,
+      width:'40vw'
+    });
+    this.ref.onClose.subscribe((user) => {
+      console.log(user);
+      this.userUpdated.emit(user? user : null);
+    });
+  }
 
+  /**
+   * open the dialog to add a new user and emit the form value to the home page
+   */
+  onAddUser() {
+    this.ref = this.dialogService.open(AddEditUserComponent, {
+      header: `Add User`,
+      data: {
+        user: '',
+        status: 'add',
+      },
+      closable:true,
+      dismissableMask:true,
+      width:'40vw'
+    });
+    this.ref.onClose.subscribe((user) => {
+      console.log(user);
+      this.userAdded.emit(user? user : null);
+    });
   }
 }
