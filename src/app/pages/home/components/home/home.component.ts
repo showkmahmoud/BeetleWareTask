@@ -10,7 +10,7 @@ import { DialogService } from 'primeng/dynamicdialog';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [MessageService,DialogService],
+  providers: [MessageService, DialogService],
 })
 export class HomeComponent implements OnInit {
   userType: string = '';
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public messageService: MessageService,
-    public usersService:UsersService
+    public usersService: UsersService
   ) {}
   ngOnInit(): void {
     this.userType = String(localStorage.getItem(AuthUser.userType));
@@ -35,7 +35,13 @@ export class HomeComponent implements OnInit {
       this.users = res.users.length > 0 ? res.users : [];
     });
   }
-  onUserDeleted(id:number) {
+  /**
+   * delete user via the usersService
+   * emits the notification
+   * updates the usres data to display it
+   * @param id
+   */
+  onUserDeleted(id: number) {
     this.usersService.deleteUser(id);
     this.messageService.add({
       severity: 'success',
@@ -44,8 +50,15 @@ export class HomeComponent implements OnInit {
     });
     this.users = this.usersService.getUsers();
   }
-  onUserUpdated(user:IUser) {
-    if(user){
+
+  /**
+   * update the user via the usersService
+   * emits the notification
+   * updates the usres data to display it
+   * @param user
+   */
+  onUserUpdated(user: IUser) {
+    if (user) {
       this.usersService.updateUser(user);
       this.messageService.add({
         severity: 'success',
@@ -53,18 +66,36 @@ export class HomeComponent implements OnInit {
         detail: '',
       });
       this.users = this.usersService.getUsers();
+    } else {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Updated Failed',
+        detail: '',
+      });
     }
   }
 
-  onUserAdded(user:IUser) {
-    if(user){
-    this.usersService.addUser(user);
-    this.messageService.add({
-      severity: 'success',
-      summary: 'User Added Successfully',
-      detail: '',
-    });
-    this.users = this.usersService.getUsers();
+    /**
+   * adding a new user via the usersService
+   * emits the notification
+   * updates the usres data to display it
+   * @param user
+   */
+  onUserAdded(user: IUser) {
+    if (user) {
+      this.usersService.addUser(user);
+      this.messageService.add({
+        severity: 'success',
+        summary: 'User Added Successfully',
+        detail: '',
+      });
+      this.users = this.usersService.getUsers();
+    } else {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Adding New User Failed',
+        detail: '',
+      });
     }
   }
 }

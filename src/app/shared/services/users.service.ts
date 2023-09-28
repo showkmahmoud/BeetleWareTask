@@ -22,7 +22,7 @@ export class UsersService {
  */
   addUser(user:IUser){
     const id = Math.floor(Math.random() * 100);
-    user.id = id
+    user.id = id;
     users.push(user)
   }
 

@@ -1,40 +1,108 @@
 <div class="add-edit-wrapper">
   <form [formGroup]="form" class="form-wrapper" *ngIf="form">
-     <!-- email -->
-     <div class="flex flex-column gap-1 mb-6 relative">
+    <!-- name -->
+    <div class="flex flex-column gap-1 mb-4 relative">
+      <label htmlFor="name">Name</label>
+      <input
+        pInputText
+        formControlName="name"
+        [ngClass]="{
+          'ng-invalid ng-dirty':
+            formControls['name'].errors && formControls['name'].touched
+        }"
+      />
+      <!-- name is required -->
+      <small
+        *ngIf="
+          formControls['name'].errors?.required && formControls['name'].touched
+        "
+        style="bottom: -22px"
+        class="p-error absolute block my-1 font-semibold"
+      >
+        this field is required
+      </small>
+    </div>
+    <!-- phone -->
+    <div class="flex flex-column gap-1 mb-4 relative">
+      <label htmlFor="phone">Phone</label>
+      <input
+        pInputText
+        type="number"
+        formControlName="phone"
+        [ngClass]="{
+          'ng-invalid ng-dirty':
+            formControls['phone'].errors && formControls['phone'].touched
+        }"
+      />
+
+      <!-- phone is required -->
+      <small
+        *ngIf="
+          formControls['phone'].errors?.required &&
+          formControls['phone'].touched
+        "
+        style="bottom: -22px"
+        class="p-error absolute block my-1 font-semibold"
+      >
+        this field is required
+      </small>
+    </div>
+    <!-- email -->
+    <div class="flex flex-column gap-1 mb-4 relative">
       <label htmlFor="email">Email</label>
-      <input pInputText formControlName="email"
-      [ngClass]="{
-        'ng-invalid ng-dirty':
-          formControls['email'].errors &&
-          formControls['email'].touched
-      }"/>
+      <input
+        pInputText
+        formControlName="email"
+        [ngClass]="{
+          'ng-invalid ng-dirty':
+            formControls['email'].errors && formControls['email'].touched
+        }"
+      />
 
       <!-- email is required -->
       <small
-      *ngIf="
-        formControls['email'].errors?.required &&
-        formControls['email'].touched
-      "
-      style="bottom: -22px;"
-      class="p-error absolute block my-1 font-semibold"
+        *ngIf="
+          formControls['email'].errors?.required &&
+          formControls['email'].touched
+        "
+        style="bottom: -22px"
+        class="p-error absolute block my-1 font-semibold"
       >
-      this field is required
+        this field is required
       </small>
 
       <!-- error msg to the email validation -->
-    <small
-    *ngIf="
-      formControls['email'].errors?.email &&
-      formControls['email'].touched
-    "
-    style="bottom: -22px;"
-    class="p-error absolute block my-1 font-semibold"
-    >
-    this email is not valid
-    </small
-  >
+      <small
+        *ngIf="
+          formControls['email'].errors?.email && formControls['email'].touched
+        "
+        style="bottom: -22px"
+        class="p-error absolute block my-1 font-semibold"
+      >
+        this email is not valid
+      </small>
+    </div>
+    <!-- status -->
+    <div class="flex flex-column gap-3">
+      <label htmlFor="status" class="">Status</label>
+      <div class="flex gap-3">
+        <div *ngFor="let status of statuses" class="field-checkbox">
+        <p-radioButton
+          [inputId]="status.value" [value]="status.value"
+          formControlName="status"
+        ></p-radioButton>
+        <label [for]="status.value" class="ml-2">{{ status.name }}</label>
+      </div>
+      </div>
+
     </div>
   </form>
-  <button class="edit-btn my-1 mx-auto capitalize" (click)="onSubmit()">submit</button>
+  <button
+    class="edit-btn my-1 capitalize"
+    [ngClass]="form.invalid ? 'disabled-main-btn' : ''"
+    [disabled]="form.invalid"
+    (click)="onSubmit()"
+  >
+    submit
+  </button>
 </div>

@@ -84,7 +84,6 @@ export class AdminsViewComponent {
       width:'40vw'
     });
     this.ref.onClose.subscribe((user) => {
-      console.log(user);
       this.userUpdated.emit(user? user : null);
     });
   }
@@ -104,7 +103,6 @@ export class AdminsViewComponent {
       width:'40vw'
     });
     this.ref.onClose.subscribe((user) => {
-      console.log(user);
       this.userAdded.emit(user? user : null);
     });
   }

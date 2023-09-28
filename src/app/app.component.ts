@@ -13,8 +13,8 @@ export class AppComponent {
 
   ngOnInit(): void {
     // @TODO
-    // localStorage.setItem(AuthUser.authUser , '');
-    // localStorage.setItem(AuthUser.userType , '');
+    localStorage.setItem(AuthUser.authUser , '');
+    localStorage.setItem(AuthUser.userType , '');
     if (!localStorage.getItem(LANG_KEY)) {
       this.languageService.changeLang(Languages.en);
     } else {
