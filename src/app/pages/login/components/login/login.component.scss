@@ -2,6 +2,21 @@
   background: var(--white-bg);
   height: 100vh;
   padding: 200px 0;
+  .header{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  .header::after{
+    content: '';
+    background: var(--primary);
+    display: block;
+    margin: 10px auto 40px;
+    width: 40px;
+    height: 2px;
+
+  }
   .form-wrapper{
     background: var(--white);
     color: var(--black);

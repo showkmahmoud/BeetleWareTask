@@ -1,50 +1,27 @@
 {
   "actions": {
-    "main-btn": "طلب سعر",
-    "watch-video": "شاهد الفيديو",
-    "menu": "القائمة",
-    "plan-btn": "اشتراك",
-    "download": "تنزيل",
-    "spread": "الاكثر اشتراكا",
-    "price-msg": "سيتم إرسال عرض سعر لكل موديول",
+    "add-btn": "اضافة مسخدم",
+    "delete-btn": "تعديل",
+    "edit-btn": "مسح",
+    "submit-btn":"تأكيد",
     "not-found": "لا يوجد",
-    "contactUs": "تواصل معنا"
+    "logout":"تسجيل الخروج"
+  },
+  "forms-msg": {
+    "error-msg": "هذا الحقل مطلوب",
+    "mail-error-msg": "this mail is invalid",
+    "not-found-data":"لا يوجد بيانات"
+  },
+  "labels": {
+    "name": "الاسم",
+    "password": "كلمة المرور",
+    "phone": "رقم الهاتف",
+    "email": " البريد الالكتروني",
+    "status": "الحالة",
+    "login":"تسجيل الدخول"
   },
   "langes": {
     "en": "اللغة الانجليزية",
-    "ar": "اللغة العربية"
-  },
-  "forms-msg": {
-    "footer-placholder": "البريد الالكتروني",
-    "send": "ارسال",
-    "mail-msg": "بريدك الالكتروني",
-    "text-msg": "اكتب رسالتك هنا",
-    "countery-msg": "اختر البلد",
-    "services-checkbox1": "بتحديد هذا المربع ، أؤكد أنني قد قرأت وفهمت وأوافق على .",
-    "services-checkbox2": "باستخدام هذا النموذج ، فإنك توافق على تخزين ومعالجة بياناتك بواسطة هذا الموقع وفقًا",
-    "privacy-policy": " لسياسة الخصوصية الخاصة بنا",
-    "conditions": "البنود والشروط",
-    "error-msg": "هذا الحقل مطلوب",
-    "mail-error-msg": "برجاء إدخال بريد إلكتروني صحيح"
-  },
-  "forms-label": {
-    "name": "الاسم",
-    "firstName": "الاسم الاول",
-    "lastName": "الاسم الاخير",
-    "phone": "الجوال",
-    "email": " البريد الالكتروني",
-    "countery": "الدولة",
-    "subject": "الموضوع",
-    "subjectTitle": "عنوان الموضوع"
-  },
-  "table": {
-    "size": "الحجم",
-    "download": "التحميل",
-    "table-caption": "جميع البرامج",
-    "search": "بحث",
-    "filter-placeholder": "جميع البرامج",
-    "all": "الجميع",
-    "filter-group-1": "مجموعة 1",
-    "filter-group-2": "مجموعة 2"
+    "ar": "اللغةالعربية"
   }
 }

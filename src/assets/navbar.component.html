@@ -1,0 +1,109 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-5 navbar w-full py-2"
+  (scroll)="onScroll()"
+  [ngClass]="currentLang == 'ar' ? 'rtl' : ''"
+  [ngClass]="{
+    rtl: currentLang === 'ar'
+  }"
+  blackText
+>
+  <div class="container grid justify-content-between align-items-center">
+    <!-- menu -->
+    <div class="menu col-6 md:col-3 lg:col-3 px-0">
+      <div class="flex justify-content-between align-items-center">
+        <!-- menu btn -->
+        <div
+          class="menu-btn flex justify-content-between align-items-center px-4 py-1 cursor-pointer border-solid border-2"
+          (click)="onOpenMenu()"
+          blackText
+        >
+          <img class="white-menu" src="assets/imgs/menu.png" alt="" />
+          <img class="black-menu" src="assets/imgs/black-menu.png" alt="" />
+          <p class="font-bold" blackText>
+            {{ "actions.menu" | translate }}
+          </p>
+        </div>
+        <a
+          routerLink="/contact-us"
+          class="text-white info white-space-nowrap mx-4 contact-link"
+          >{{ "actions.contactUs" | translate }}</a
+        >
+
+        <p-sidebar
+          [(visible)]="toggleMenu"
+          [position]="menuPosition"
+          [baseZIndex]="9999"
+          [showCloseIcon]="false"
+          appendTo="body"
+          [fullScreen]="innerWidth <= 625 ? true : false"
+          styleClass="p-sidebar-lg p-sidebar-mask "
+          transitionOptions=".5s cubic-bezier(0, 0, 0.2, 1)"
+          (visibleChange)="onVisibleChange($event)"
+        >
+          <div
+            class="flex justify-content-between align-content-end relative w-full flex-nowrap h-full"
+          >
+            <div class="w-12">
+              <app-side-bar
+                (sidebarClosed)="onVisibleChange($event)"
+                [currentRoute]="url"
+                (langSelected)="onChangeLang($event)"
+                [langsOptions]="languages"
+              ></app-side-bar>
+            </div>
+          </div>
+        </p-sidebar>
+      </div>
+    </div>
+
+    <!-- logo -->
+    <a class="logo col-6 md:col-5 lg:col-3" routerLink="/home"> </a>
+    <a class="black-logo col-6 md:col-5 lg:col-3" routerLink="/home"> </a>
+    <!-- phone and languages -->
+    <div
+      class="info grid p-fluid flex-nowrap justify-content-end align-content-between md:col-3 lg:col-4 hidden-mobile-view px-0"
+    >
+      <!-- phone info -->
+      <p class="flex align-items-center">
+        <img src="assets/imgs/phone-icon.png" alt="" />
+        <span class="white-space-nowrap num-dir mx-1" blackText>
+          {{ mobile }}
+        </span>
+      </p>
+      <!-- language section -->
+      <div class="lang-section">
+        <p-dropdown
+          [options]="languages"
+          [(ngModel)]="selectedLang"
+          optionLabel="name"
+          optionValue="value"
+          (onChange)="onChangeLang()"
+          appendTo="body"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div
+              class="flex align-items-center justify-content-between"
+              *ngIf="selectedLang"
+            >
+              <img src="assets/imgs/flag-{{ selectedLang }}.png" />
+              <p class="px-2" blackText>
+                {{ selectedLang === "ar" ? "اللغة العربية" : "English" }}
+              </p>
+            </div>
+          </ng-template>
+          <ng-template let-language pTemplate="item">
+            <div class="flex align-items-center justify-content-between">
+              <img src="assets/imgs/flag-{{ language.value }}.png" />
+              <p class="px-2">{{ language.name }}</p>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="main-loader" *ngIf="loader">
+  <div class="spinner">
+    <i class="pi pi-spin pi-spinner"></i>
+  </div>
+</div>

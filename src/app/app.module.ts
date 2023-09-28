@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { I18nModule } from './shared/i18n/i18n.module';
 import { NotFoundComponent } from './pages/not found/not-found/not-found.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,14 @@ import { NotFoundComponent } from './pages/not found/not-found/not-found.compone
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    I18nModule
+    I18nModule,
+    DropdownModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-
+exports:[
+  DropdownModule
+],
   providers: [],
 
   bootstrap: [AppComponent],

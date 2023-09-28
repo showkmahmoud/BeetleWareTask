@@ -1,9 +1,10 @@
 <div class="loginForm-wrapper">
+  <p class="header mb-2">{{'labels.login'|translate}}</p>
   <div class="container grid mx-auto">
     <form [formGroup]="loginForm" class="form-wrapper p-4 col-12 md:col-8 lg:col-5">
       <!-- email -->
       <div class="flex flex-column gap-1 mb-6 relative">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">{{'labels.email' | translate}}</label>
         <input pInputText formControlName="email"
         [ngClass]="{
           'ng-invalid ng-dirty':
@@ -38,7 +39,7 @@
       </div>
       <!-- password -->
       <div class="flex flex-column gap-1 my-4 relative">
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">{{'labels.password' | translate}}</label>
         <input pInputText type="password" formControlName="password" />
           <!-- password is required -->
           <small
@@ -58,7 +59,7 @@
     (click)="onSubmit();"
     [ngClass]="loginForm.invalid ? 'disabled-main-btn':''"
     [disabled]="loginForm.invalid"
-    >submit</button>
+    >{{'actions.submit-btn' | translate}}</button>
     </form>
   </div>
 

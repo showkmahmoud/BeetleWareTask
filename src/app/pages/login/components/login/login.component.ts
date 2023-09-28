@@ -31,16 +31,23 @@ currentLang: string = '';
 
 ) {
     this.loginForm = formBuilder.group({
-      email:['admin888@gmail.com',[Validators.email,Validators.required]],
-      password:['12345678',Validators.required]
+      email:['',[Validators.email,Validators.required]],
+      password:['',Validators.required]
     })
   }
 
   ngOnInit(): void {
-    localStorage.setItem(AuthUser.authUser , '');
-    localStorage.setItem(AuthUser.userType , '');
+    // localStorage.setItem(AuthUser.authUser , '');
+    getAppLanguage(this.translte, this.translateService);
+    this.currentLang = getCurrentLang(this.translateService);
+
   }
 
+  ngDoCheck(): void {
+    this.currentLang = getCurrentLang(this.translateService);
+  }
+
+  // to get the loginform controls
   get formControls() {
     return this.loginForm.controls;
   }
@@ -57,9 +64,9 @@ currentLang: string = '';
       localStorage.setItem(AuthUser.authUser , this.loginForm.value.email);
       if(this.authService.loggedIn()){
         this.router.navigate(['/home']);
-        this.messageService.add({ severity: 'success', summary: 'Login Success', detail: '' });
+        this.messageService.add({ severity: 'success', summary: this.currentLang == 'en'? 'Login Success': 'تم تسجيل الدخول بنجاح', detail: '' });
       }else{
-        this.messageService.add({ severity: 'error', summary: 'Login Failed', detail: 'Your email or password is incorrect' });
+        this.messageService.add({ severity: 'error', summary: this.currentLang == 'en'? 'Login Failed': 'لم يم تسجيل الدخول',  detail: 'Your email or password is incorrect' });
       }
     }
   }

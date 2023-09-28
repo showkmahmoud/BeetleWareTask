@@ -1,3 +1,41 @@
 <div class="navbar-wrapper">
-
+<div class="container">
+  <div class="flex justify-content-between">
+  <div class="lang-section col-3 ">
+    <p-dropdown
+      [options]="languages"
+      [(ngModel)]="selectedLang"
+      optionLabel="name"
+      optionValue="value"
+      (onChange)="onChangeLang()"
+      appendTo="body"
+    >
+      <ng-template pTemplate="selectedItem">
+        <div
+          class="flex align-items-center justify-content-between"
+          *ngIf="selectedLang"
+        >
+          <img src="assets/flag-{{ selectedLang }}.png" />
+          <p class="px-2" blackText>
+            {{ selectedLang === "ar" ? "اللغة العربية" : "English" }}
+          </p>
+        </div>
+      </ng-template>
+      <ng-template let-language pTemplate="item">
+        <div class="flex align-items-center justify-content-between">
+          <img src="assets/flag-{{ language.value }}.png" />
+          <p class="px-2">{{ language.name }}</p>
+        </div>
+      </ng-template>
+    </p-dropdown>
+  </div>
+  <div class="logo-wrapper col-6 flex gap-3 align-items-center">
+    <img class="logo" src="assets/logo.png" alt="">
+  </div>
+  <p class="text-indigo-400 col-3 cursor-pointer"
+  [ngClass]="currentLang == 'ar' ? 'text-left': 'text-right'"
+  (click)="onLogout()"
+  > {{'actions.logout' | translate}} </p>
+  </div>
+</div>
 </div>
