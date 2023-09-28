@@ -4,7 +4,7 @@
     "delete-btn": "مسح",
     "edit-btn": "تعديل",
     "submit-btn":"تأكيد",
-    "not-found": "لا يوجد",
+    "not-found": " لا يوجد معلومات",
     "logout":"تسجيل الخروج"
   },
   "forms-msg": {
