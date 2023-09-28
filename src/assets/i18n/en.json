@@ -18,7 +18,13 @@
     "phone": "Phone",
     "email": " Email ",
     "status": "Status",
-    "login":"Login Page"
+    "login":"Login Page",
+    "usersData":"Users Data",
+    "search":"Search",
+    "actions": "Actions",
+    "active":"Active",
+    "SoftDeleted": "Soft_Deleted"
+
   },
   "langes": {
     "en": "English",

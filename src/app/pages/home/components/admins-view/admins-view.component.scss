@@ -18,4 +18,13 @@ td,th{
   font-size: 18px;
   margin: 0 auto;
 }
+.data-table{
+  &.rtl {
+    & .p-paginator {
+      button,span  {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}
 }

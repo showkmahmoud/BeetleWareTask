@@ -1,15 +1,15 @@
 {
   "actions": {
-    "add-btn": "اضافة مسخدم",
-    "delete-btn": "تعديل",
-    "edit-btn": "مسح",
+    "add-btn": "اضافة مستخدم",
+    "delete-btn": "مسح",
+    "edit-btn": "تعديل",
     "submit-btn":"تأكيد",
     "not-found": "لا يوجد",
     "logout":"تسجيل الخروج"
   },
   "forms-msg": {
     "error-msg": "هذا الحقل مطلوب",
-    "mail-error-msg": "this mail is invalid",
+    "mail-error-msg": "هذا الايميل غير صحيح",
     "not-found-data":"لا يوجد بيانات"
   },
   "labels": {
@@ -18,7 +18,12 @@
     "phone": "رقم الهاتف",
     "email": " البريد الالكتروني",
     "status": "الحالة",
-    "login":"تسجيل الدخول"
+    "login":"تسجيل الدخول",
+    "usersData":"معلومات المستخدمين",
+    "search":"بحث",
+    "actions": "الاجرائات",
+    "active":"نشط",
+    "SoftDeleted": "غير نشط"
   },
   "langes": {
     "en": "اللغة الانجليزية",

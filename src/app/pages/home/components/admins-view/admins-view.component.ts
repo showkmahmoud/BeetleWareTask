@@ -70,7 +70,7 @@ export class AdminsViewComponent {
    */
   onUpdateUser(user: IUser) {
     this.ref = this.dialogService.open(AddEditUserComponent, {
-      header: `Edit ${user.name}`,
+      header: this.currentLang =='en' ? `Edit ${user.name}`: `تعديل ${user.name}`,
       data: {
         user: user,
         status: 'update',
@@ -94,7 +94,7 @@ export class AdminsViewComponent {
    */
   onAddUser() {
     this.ref = this.dialogService.open(AddEditUserComponent, {
-      header: `Add User`,
+      header: this.currentLang == 'en' ?  `Add User` : 'اضافة مستخدم',
       data: {
         user: '',
         status: 'add',

@@ -2,7 +2,7 @@
   <form [formGroup]="form" class="form-wrapper" *ngIf="form">
     <!-- name -->
     <div class="flex flex-column gap-1 mb-4 relative">
-      <label htmlFor="name">Name</label>
+      <label htmlFor="name">{{'labels.name' | translate}}</label>
       <input
         pInputText
         formControlName="name"
@@ -19,12 +19,12 @@
         style="bottom: -22px"
         class="p-error absolute block my-1 font-semibold"
       >
-        this field is required
+        {{'forms-msg.error-msg' | translate}}
       </small>
     </div>
     <!-- phone -->
     <div class="flex flex-column gap-1 mb-4 relative">
-      <label htmlFor="phone">Phone</label>
+      <label htmlFor="phone">{{'labels.phone' | translate}}</label>
       <input
         pInputText
         type="number"
@@ -44,12 +44,12 @@
         style="bottom: -22px"
         class="p-error absolute block my-1 font-semibold"
       >
-        this field is required
+        {{'forms-msg.error-msg' | translate}}
       </small>
     </div>
     <!-- email -->
     <div class="flex flex-column gap-1 mb-4 relative">
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email">{{'labels.email' | translate}}</label>
       <input
         pInputText
         formControlName="email"
@@ -68,7 +68,7 @@
         style="bottom: -22px"
         class="p-error absolute block my-1 font-semibold"
       >
-        this field is required
+        {{'forms-msg.error-msg' | translate}}
       </small>
 
       <!-- error msg to the email validation -->
@@ -84,14 +84,14 @@
     </div>
     <!-- status -->
     <div class="flex flex-column gap-3">
-      <label htmlFor="status" class="">Status</label>
+      <label htmlFor="status" class="">{{'labels.status' | translate}}</label>
       <div class="flex gap-3">
         <div *ngFor="let status of statuses" class="field-checkbox">
         <p-radioButton
           [inputId]="status.value" [value]="status.value"
           formControlName="status"
         ></p-radioButton>
-        <label [for]="status.value" class="ml-2">{{ status.name }}</label>
+        <label [for]="status.value" class="mx-2">{{ status.name }}</label>
       </div>
       </div>
 
@@ -100,9 +100,10 @@
   <button
     class="edit-btn my-1 capitalize"
     [ngClass]="form.invalid ? 'disabled-main-btn' : ''"
+    [ngClass]="currentLang == 'ar' ? 'ml-auto' : 'mr-auto'"
     [disabled]="form.invalid"
     (click)="onSubmit()"
   >
-    submit
+    {{'actions.submit-btn' |translate}}
   </button>
 </div>
