@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
   userType: string = '';
   uTypes = AuthUser;
   users: IUser[] = [];
-  currentLang:string=''
+  currentLang:string='';
+
   constructor(
     private route: ActivatedRoute,
     public messageService: MessageService,

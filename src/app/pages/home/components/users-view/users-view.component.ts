@@ -20,7 +20,6 @@ export class UsersViewComponent {
   constructor(
     private translateService: LangService,
     private translte: TranslateService,
-
   ){
 
   }
